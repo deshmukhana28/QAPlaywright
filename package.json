@@ -1,0 +1,31 @@
+{
+  "name": "playwrightautomationnew",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "regression": "npx playwright test",
+    "webTest": "npx playwright test --grep @Web",
+    "APITest": "npx playwright test --grep @API",
+    "safariNewConfig": "npx playwright test --config playwright.config1.js",
+    "allureReposrt": "npx playwright test tests/ClientAppPO.spec.js --reporter=line,allure-playwright"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.65.0",
+    "@types/node": "^26.6.5",
+    "allure-commandline": "^2.46.1",
+    "allure-playwright": "^3.14.0"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0"
+  },
+  "overrides": {
+    "fast-csv": "4.3.6",
+    "tmp": "0.2.7",
+    "uuid": "11.1.1"
+  }
+}
