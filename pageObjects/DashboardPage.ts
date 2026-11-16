@@ -1,12 +1,17 @@
-class DashboardPage{
-
-    constructor(page)
+import { Locator, Page } from "@playwright/test";
+export class DashboardPage{
+       productList : Locator;
+       cart : Locator;
+       orderHistoryPage : Locator;
+       page: Page;
+    constructor(page: Page)
     {
+       this.page = page;
        this.productList = page.locator(".card-body");
        this.cart = page.locator("[routerlink*='cart']");
        this.orderHistoryPage= page.locator("button[routerlink*='/dashboard/myorders']");
     }
-    async searchProductAddToCart(productName)
+    async searchProductAddToCart(productName: string)
     {
     const title = await this.productList.allTextContents();
     const count = await this.productList.count();

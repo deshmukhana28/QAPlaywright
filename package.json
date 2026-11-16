@@ -5,22 +5,33 @@
   "main": "index.js",
   "scripts": {
     "regression": "npx playwright test",
-    "webTest": "npx playwright test --grep @Web",
-    "APITest": "npx playwright test --grep @API",
+    "endToEnd": "npx playwright test tests/ClientApp.spec.js",
+    "webTest": "npx playwright test --grep '@Web'",
+    "APITest": "npx playwright test --grep '@API'",
     "safariNewConfig": "npx playwright test --config playwright.config1.js",
-    "allureReposrt": "npx playwright test tests/ClientAppPO.spec.js --reporter=line,allure-playwright"
+    "allureReport": "npx playwright test tests/ClientAppPO.spec.js --reporter=line,allure-playwright",
+    "cucumberfilerun": "npx cucumber-js --exit",
+    "cucumberRegression": "npx cucumber-js --tags '@Regression' --exit",
+    "CucumberHTMLformatfile": "npx cucumber-js --exit --format html:cucumber-report.html",
+    "Cucumberretry": "npx cucumber-js features/Ecommerce.feature --parallel 3 --retry 2 --exit"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "@azure/identity": "^4.14.1",
+    "@azure/playwright": "^1.1.6",
     "@playwright/test": "^1.65.0",
     "@types/node": "^26.6.5",
     "allure-commandline": "^2.46.1",
-    "allure-playwright": "^3.14.0"
+    "allure-playwright": "^3.14.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3"
   },
   "dependencies": {
+    "@cucumber/cucumber": "^13.3.0",
     "exceljs": "^4.4.0"
   },
   "overrides": {

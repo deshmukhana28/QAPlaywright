@@ -1,6 +1,13 @@
-const {expect} = require('@playwright/test');
-class CheckoutPage{
-    constructor(page)
+import { Locator, Page, expect} from "@playwright/test";
+export class CheckoutPage{
+    cvv : Locator;
+    nameOnCard : Locator;
+    confirmEmail : Locator;
+    countryDropdown : Locator;
+    countryOption : Locator;
+    placeOrder : Locator;
+    page: Page;
+    constructor(page: Page)
     {
         this.page = page;
         this.cvv= page.locator("div.field input.txt").nth(1);
@@ -11,7 +18,7 @@ class CheckoutPage{
         this.placeOrder = page.locator("text=Place Order ");
     }
 
-    async fillShippingInfo(emailID)
+    async fillShippingInfo(emailID: string)
     {
             await this.cvv.first().fill("123");
             await this.nameOnCard.fill("anupama");

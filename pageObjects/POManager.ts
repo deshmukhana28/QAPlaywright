@@ -1,13 +1,23 @@
-const {LoginPage} = require('./LoginPage');
-const {DashboardPage} = require('./DashboardPage');
-const {CartPage} = require('./CartPage');
-const {CheckoutPage} = require('./CheckoutPage');
-const {ThankyouPage} = require('./ThankyouPage');
-const {orderHistoryPage} = require('./OrderhistoryPage');
-const {OrderSummaryPage} = require('./OrderSummaryPage');
+import { Locator, Page, expect} from "@playwright/test";
 
-class POManager{
-    constructor(page)
+import{LoginPage} from './LoginPage';
+import{DashboardPage} from './DashboardPage';
+import{CartPage} from './CartPage';
+import{CheckoutPage} from './CheckoutPage';
+import{ThankyouPage} from './ThankyouPage';
+import{OrderHistoryPage} from './OrderhistoryPage';
+import{OrderSummaryPage} from './OrderSummaryPage';
+
+export class POManager{
+    loginPage:LoginPage;
+    dashboardpage:DashboardPage;
+    cartPage:CartPage;
+    checkoutPage:CheckoutPage;
+    thankyouPage:ThankyouPage;
+    oderhistorypage:OrderHistoryPage;
+    ordersummapypage:OrderSummaryPage;
+    page:Page;
+    constructor(page:Page)
     {
         this.page = page;
         this.loginPage = new LoginPage(this.page);
@@ -15,7 +25,7 @@ class POManager{
         this.cartPage = new CartPage(this.page);
         this.checkoutPage = new CheckoutPage(this.page);
         this.thankyouPage =new ThankyouPage(this.page);
-        this.oderhistorypage = new orderHistoryPage(this.page);
+        this.oderhistorypage = new OrderHistoryPage(this.page);
         this.ordersummapypage = new OrderSummaryPage(this.page);
     }
     getLoginPage()

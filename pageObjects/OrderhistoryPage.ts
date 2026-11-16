@@ -1,11 +1,15 @@
-class orderHistoryPage{
-    constructor(page)
+import { Locator, Page, expect} from "@playwright/test";
+export class OrderHistoryPage{
+    rows:Locator;
+    page: Page;
+
+    constructor(page: Page)
     {
         this.page = page;
         this.rows = page.locator("tbody tr");
 
     }
-    async checkOrderIdAndNaviagetToOrderSummaryPage(orderId)
+    async checkOrderIdAndNaviagetToOrderSummaryPage(orderId:any)
     {
     await this.rows.first().waitFor();
     // check each row one by one and check whether our order id is present or not
@@ -20,4 +24,4 @@ class orderHistoryPage{
      }
     }
 }
-module.exports= {orderHistoryPage};
+module.exports= {OrderHistoryPage};
