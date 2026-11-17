@@ -14,7 +14,7 @@
     "cucumberRegression": "npx cucumber-js --tags '@Regression' --exit",
     "CucumberHTMLformatfile": "npx cucumber-js --exit --format html:cucumber-report.html",
     "Cucumberretry": "npx cucumber-js features/Ecommerce.feature --parallel 3 --retry 2 --exit",
-    "runOnCloud": "npx playwright test --config=playwright.service.config.js --workers=3"
+    "cloudRun": "npx playwright test --config=playwright.serivice.config.js --workers=4"
   },
   "keywords": [],
   "author": "",
