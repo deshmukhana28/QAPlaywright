@@ -4,7 +4,7 @@ const { test, expect } = require('@playwright/test');
 
 // run test in parallel ***********************______________*************
 test.describe.configure({mode:'parallel'});
-
+//sending changes to anu fixex branch
 test('@Web Registration Test', async ({page}) =>
 {
     const firstName = page.locator("#firstName");
