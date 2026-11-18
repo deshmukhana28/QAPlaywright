@@ -13,6 +13,7 @@ export default defineConfig(
     credential: new DefaultAzureCredential(),
   }),
   {
+    
     /*
     Enable Playwright Workspaces Reporter:
     Uncomment the reporter section below to upload test results and reports to Playwright Workspaces.
@@ -21,9 +22,23 @@ export default defineConfig(
     This configuration will replace any existing reporter settings from your base config.
     If you're already using other reporters, add them to this array.
     */
-    // reporter: [
-    //   ["html", { open: "never" }],
-    //   ["@azure/playwright/reporter"],
-    // ],
+    reporter: [
+    ["html", { open: "never" }],
+    ["@azure/playwright/reporter"],
+     ],
+
+    
   }
 );
+
+// azure
+    // user id: "6d6de4f9-fb99-45fe-8d4b-6a340567f7de"
+    // storage id: pwstrgfinance991a
+    // resource group: Finance
+    /*
+    step 4 command:
+    az role assignment create `
+      --assignee "6d6de4f9-fb99-45fe-8d4b-6a340567f7de" `
+      --role "Storage Blob Data Contributor" `
+      --scope (az storage account show --name pwstrgfinance991a --resource-group finance --query id -o tsv)
+    */
